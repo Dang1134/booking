@@ -1,0 +1,13 @@
+
+server:
+  port: 9092
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3307/booking
+    username: root
+    password: admin123
+    driver-class-name: com.mysql.cj.jdbc.Driver
