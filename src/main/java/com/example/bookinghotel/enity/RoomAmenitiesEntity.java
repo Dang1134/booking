@@ -1,25 +1,22 @@
 package com.example.bookinghotel.enity;
 
+import com.example.bookinghotel.enity.key.RoomAmenitiesID;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity(name = "room_amenities")
 @Data
 public class RoomAmenitiesEntity {
-    @Id
-    @Column(name = "room_id")
-    private int idRoom ;
-    @Id
-    @Column(name = "amenities_id")
-    private int idAmenities ;
+    @EmbeddedId
+    private RoomAmenitiesID id;
 
     @ManyToOne
-    @JoinColumn(name = "amenities_id")
+    @JoinColumn(name = "amenities_id" , insertable = false , updatable = false)
     private AmenitiesEntity amenities ;
 
     @ManyToOne
-    @JoinColumn(name = "room_id")
-    private RoomEntity rooms ;
+    @JoinColumn(name = "room_id" , insertable = false , updatable = false)
+    private RoomEntity room ;
 
 
 

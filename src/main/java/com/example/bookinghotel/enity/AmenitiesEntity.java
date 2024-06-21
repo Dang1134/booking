@@ -11,8 +11,8 @@ import java.util.List;
 public class AmenitiesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id ;
+
     @Column(name = "name")
     private String name ;
 

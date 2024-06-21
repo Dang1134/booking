@@ -3,6 +3,7 @@ package com.example.bookinghotel.enity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity(name = "booking")
@@ -11,30 +12,38 @@ public class BookingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id ;
+
     @Column(name = "user_id")
     private int idUser;
+
     @Column(name = "hotel_id")
     private int idHotel ;
-    @Column(name = "booking_date")
-    private String bookingDate ;
+
+    @Column(name = "booking_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime bookingDate ;
+
     @Column(name = "total_price")
     private double totalPrice ;
+
     @Column(name = "payment_amount")
-    private String paymentAmount;
-    @Column(name = "payment_status")
-    private String paymentStatus;
-    @Column(name = "payment_date")
-    private String paymentDate;
+    private double paymentAmount;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "payment_status", columnDefinition = "ENUM('TRANSFERRED','NOTTRANSFERRED') DEFAULT 'NOTTRANSFERRED'")
+    private PAYMENT_STATUS paymentStatus;
+
+    @Column(name = "payment_date" , columnDefinition = "TIMESTAMP")
+    private LocalDateTime paymentDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id" , insertable=false, updatable=false)
-    private UserEntity users ;
+    private UserEntity user ;
 
     @ManyToOne
     @JoinColumn(name = "hotel_id" , insertable=false, updatable=false)
-    private HotelEntity hotels ;
+    private HotelEntity hotel ;
 
-    @OneToMany(mappedBy = "bookings")
+    @OneToMany(mappedBy = "booking")
     private List<BookingRoomEntity> bookingRooms ;
 
 
