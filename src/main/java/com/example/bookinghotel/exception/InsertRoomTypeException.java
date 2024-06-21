@@ -1,4 +1,4 @@
-package exception;
+package com.example.bookinghotel.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

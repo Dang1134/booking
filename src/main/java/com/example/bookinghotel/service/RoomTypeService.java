@@ -5,11 +5,7 @@ import com.example.bookinghotel.repository.RoomTypeRepository;
 import com.example.bookinghotel.service.imp.RoomTypeServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import payload.request.InsertRoomTypeRequest;
-import payload.request.UpdateRoomTypeRequest;
-
-import java.util.List;
-import java.util.Optional;
+import com.example.bookinghotel.payload.request.InsertRoomTypeRequest;
 
 @Service
 

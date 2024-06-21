@@ -1,4 +1,4 @@
-package payload.response;
+package com.example.bookinghotel.payload.response;
 
 import lombok.Data;
 

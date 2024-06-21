@@ -1,16 +1,12 @@
 package com.example.bookinghotel.controller;
 
-import com.example.bookinghotel.enity.RoomTypeEntity;
 import com.example.bookinghotel.service.imp.RoomTypeServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import payload.request.InsertRoomTypeRequest;
-import payload.request.UpdateRoomTypeRequest;
-import payload.response.BaseResponse;
-
-import java.util.List;
+import com.example.bookinghotel.payload.request.InsertRoomTypeRequest;
+import com.example.bookinghotel.payload.response.BaseResponse;
 
 @RestController
 @RequestMapping("/roomtype")
