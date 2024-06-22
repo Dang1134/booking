@@ -15,6 +15,9 @@ public class RoomEntity {
     @Column(name = "room_number")
     private int roomNumber;
 
+    @Column(name = "desciption")
+    private String description ;
+
     @Column(name = "roomtype_id")
     private int idRoomtype;
 

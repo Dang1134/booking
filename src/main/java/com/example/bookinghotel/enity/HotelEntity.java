@@ -15,6 +15,9 @@ public class HotelEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id ;
 
+    @Column(name = "avatar")
+    private String avatar ;
+
     @Column(name = "name")
     private String name;
 
