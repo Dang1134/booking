@@ -6,7 +6,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity(name = "hotel_reiviews")
+@Entity(name = "hotel_reviews")
 @Data
 
 public class HotelReviewEntity {

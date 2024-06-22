@@ -1,11 +1,17 @@
 package com.example.bookinghotel.service.imp;
 
+import com.example.bookinghotel.dto.RoomTypeDTO;
+import com.example.bookinghotel.enity.RoomTypeEntity;
 import com.example.bookinghotel.payload.request.InsertRoomTypeRequest;
+import jakarta.servlet.http.HttpServletRequest;
+
+import java.util.List;
 
 public interface RoomTypeServiceImp {
-     void insertRoomType (InsertRoomTypeRequest request);
+      RoomTypeEntity insertRoomType (HttpServletRequest request, InsertRoomTypeRequest typeRequest);
+     List<RoomTypeDTO> getAllRoomType(HttpServletRequest request);
 
 
-     void deleteRoomType(int id);
+     void deleteRoomType( HttpServletRequest request ,int id);
 
 }
