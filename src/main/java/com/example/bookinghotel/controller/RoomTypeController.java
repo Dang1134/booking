@@ -56,10 +56,12 @@ public class RoomTypeController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteRoomType(HttpServletRequest request ,@PathVariable int id) {
         try {
-            roomTypeServiceImp.deleteRoomType(request, id);
-            return new ResponseEntity<>("Xóa loại phòng thành công", HttpStatus.OK);
+           roomTypeServiceImp.deleteRoomType(request, id);
+            BaseResponse baseResponse = BaseResponse.successBaseResponse(null ," Xóa loại phòng thành công ");
+            return new ResponseEntity<>(baseResponse, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Không thể xóa loại phòng", HttpStatus.INTERNAL_SERVER_ERROR);
+            BaseResponse baseResponse = BaseResponse.errorBaseResponse("Xoá phòng không thành công");
+            return new ResponseEntity<>(baseResponse, HttpStatus.OK);
         }
     }
 }

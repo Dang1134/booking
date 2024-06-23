@@ -16,7 +16,7 @@ public class RoomTypeEntity {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "roomType")
+    @OneToMany(mappedBy = "roomType" , cascade = CascadeType.ALL , orphanRemoval = true)
     private List<RoomEntity> rooms ;
 
 }
