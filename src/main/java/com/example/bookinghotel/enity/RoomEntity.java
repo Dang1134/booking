@@ -31,7 +31,7 @@ public class RoomEntity {
     @Column(name = "status" , columnDefinition = "ENUM('AVAILABLE','BOOKED','OCCUPIED','MAINTENANCE','CLEANING') DEFAULT 'AVAILABLE'")
     private ROOM_STATUS status;
 
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room" , cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomAmenitiesEntity> roomAmenities;
 
     @OneToMany(mappedBy = "room")
