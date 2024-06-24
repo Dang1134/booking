@@ -15,7 +15,8 @@ public class RoomEntity {
     @Column(name = "room_number")
     private int roomNumber;
 
-    @Column(name = "description")
+    @Lob
+    @Column(name = "description" )
     private String description ;
 
     @Column(name = "roomtype_id")

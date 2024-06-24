@@ -29,7 +29,7 @@ public class UserEntity {
     private String address ;
 
     @Column(name = "phone")
-    private int phone ;
+    private String phone ;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "sex")
