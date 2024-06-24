@@ -16,7 +16,7 @@ public class AmenitiesEntity {
     @Column(name = "name")
     private String name ;
 
-    @Column(name ="icon" )
+    @Column(name ="icon" , length = 1500)
     private String icon ;
 
     @OneToMany(mappedBy = "amenities")
