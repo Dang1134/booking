@@ -41,16 +41,19 @@ public class RoomTypeController {
             BaseResponse baseResponse = BaseResponse.errorBaseResponse("Thêm mới thất bại");
             return new ResponseEntity<>(baseResponse, HttpStatus.OK);
         }
-
-
-
-
     }
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateRoomType(UpdateRoomTypeRequest updateRoomTypeRequest){
-        return new ResponseEntity<>("baseResponse", HttpStatus.OK);
-    }
+    public ResponseEntity<?> updateRoomType( HttpServletRequest request , @RequestBody  UpdateRoomTypeRequest updateRoomTypeRequest , @PathVariable int id){
+        try {
+            RoomTypeEntity roomTypeEntity = roomTypeServiceImp.updateRoomType(request, updateRoomTypeRequest, id);
+            BaseResponse baseResponse = BaseResponse.successBaseResponse(updateRoomTypeRequest , "Cập nhật thành công");
+            return new ResponseEntity<>(baseResponse, HttpStatus.OK);
+        }catch (Exception e){
+            BaseResponse baseResponse = BaseResponse.errorBaseResponse("Cập nhật loại phòng thất bại");
+            return new ResponseEntity<>(baseResponse,HttpStatus.OK);
+        }
 
+    }
 
 
     @DeleteMapping("/{id}")
