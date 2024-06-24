@@ -5,6 +5,8 @@ import com.example.bookinghotel.enity.RoomEntity;
 import com.example.bookinghotel.enity.RoomTypeEntity;
 import com.example.bookinghotel.exception.DeleteException;
 import com.example.bookinghotel.exception.InsertRoomTypeException;
+import com.example.bookinghotel.exception.UpdateRoomTypeException;
+import com.example.bookinghotel.payload.request.UpdateRoomTypeRequest;
 import com.example.bookinghotel.repository.RoomAmenitiesRepository;
 import com.example.bookinghotel.repository.RoomRepository;
 import com.example.bookinghotel.repository.RoomTypeRepository;
@@ -66,11 +68,14 @@ public class RoomTypeService implements RoomTypeServiceImp {
         for (RoomEntity room : rooms){
             roomAmenitiesRepository.deleteByRoomId(room.getId());
             roomRepository.delete(room);
-
         }
-
         roomTypeRepository.deleteById(id);
     }
 
-
+    @Override
+    public RoomTypeEntity updateRoomType(HttpServletRequest request, UpdateRoomTypeRequest updateRoomTypeRequest, int id) {
+        RoomTypeEntity roomTypeEntity = roomTypeRepository.findById(id).orElseThrow(()-> new UpdateRoomTypeException("Không tìm thấy loại phòng" +id));
+        roomTypeEntity.setName(updateRoomTypeRequest.getName());
+        return roomTypeRepository.save(roomTypeEntity);
+    }
 }
