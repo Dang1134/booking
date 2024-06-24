@@ -67,6 +67,7 @@ public class HotelEntity {
     @JoinColumn(name = "user_id" , insertable=false, updatable=false)
     private UserEntity user;
 
+
     @OneToOne(mappedBy = "hotel")
-    private HotelAdressEntity hotelAdress ;
+    private HotelAddressEntity hotelAddress;
 }

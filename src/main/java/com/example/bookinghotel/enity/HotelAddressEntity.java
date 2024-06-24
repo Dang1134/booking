@@ -1,15 +1,17 @@
 package com.example.bookinghotel.enity;
 
-import com.example.bookinghotel.enity.key.HotelAdressID;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity(name = "hotel_address")
 @Data
-public class HotelAdressEntity {
-    @EmbeddedId
-    private HotelAdressID id ;
+public class HotelAddressEntity {
+//    @EmbeddedId
+//    private HotelAddressID id ;
 
+    @Id
+    @Column(name = "hotel_id")
+    private int hotelID;
 
     @Column(name = "street_number")
     private int streetNumber;
@@ -30,7 +32,8 @@ public class HotelAdressEntity {
     private String country;
 
     @OneToOne
-    @JoinColumn(name = "hotel_id", insertable = false , updatable = false)
+    @MapsId
+    @JoinColumn(name = "hotel_id" , insertable=false, updatable=false)
     private HotelEntity hotel;
 
 
